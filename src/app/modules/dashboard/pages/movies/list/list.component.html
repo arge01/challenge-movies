@@ -1,0 +1,54 @@
+<div id="{{model.id}}" class="flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex-col items-center">
+      <h3 class="text-md font-bold text-gray-900 dark:text-night-50">{{model.name}} List</h3>
+    </div>
+    <button
+      class="flex-none rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500">
+      New {{model.name}}
+    </button>
+  </div>
+
+  <div class="relative overflow-x-auto">
+    <table class="w-full table-auto">
+      <!--Table head-->
+      <thead class="text-xs uppercase text-gray-400 dark:text-night-300">
+        <tr>
+          <th class="py-3 text-left">Name</th>
+          <th class="py-3 text-left">Director</th>
+          <th class="py-3 text-left">Date</th>
+          <th class="py-3 text-right">Update / Delete</th>
+        </tr>
+      </thead>
+      <!--end Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr *ngFor="let movie of model.entities"
+          class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
+          <td>{{movie.name}}</td>
+          <td>{{movie.directors}}</td>
+          <td>{{movie.createdAt | date: "dd MMM yyyy"}}</td>
+          <td class="py-2 pl-2 text-right">
+            <div class="flex justify-end">
+              <ul class="flex min-w-[70px] justify-between">
+                <li>
+                  <button href="#"
+                    class="flex h-7 w-7 items-center justify-center rounded-md bg-gray-200 text-gray-400 dark:bg-night-500 dark:text-night-300">
+                    <svg-icon src="assets/icons/outline/arrow-sm-right.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
+                  </button>
+                </li>
+                <li>
+                  <button href="#"
+                    class="flex h-7 w-7 items-center justify-center rounded-md bg-gray-200 text-gray-400 dark:bg-night-500 dark:text-night-300">
+                    <svg-icon src="assets/icons/outline/arrow-sm-right.svg" [svgClass]="'h-5 w-5'"> </svg-icon>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <!--end::Table body-->
+    </table>
+  </div>
+</div>
